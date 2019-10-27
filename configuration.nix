@@ -34,16 +34,16 @@
   };
 
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "en_GB.UTF-8";
   };
 
   networking = {
-    hostName = "merkle";
+    hostName = "njord";
   };
 
   nixpkgs.config = {
-    allowBroken = true;
-    allowUnfree = true;
+    allowBroken = false;
+    allowUnfree = false;
   };
 
   programs = {
@@ -63,21 +63,21 @@
     };
   };
 
-  time.timeZone = "America/New_York";
+  time.timeZone = "Europe/Amsterdam";
 
   users = {
     extraUsers = {
-      ghost = {
+      dnixty = {
         extraGroups = [ "wheel" ];
         isNormalUser = true;
-        openssh.authorizedKeys.keys = with import ./ssh-keys.nix; [ sean ];
+        openssh.authorizedKeys.keys = with import ./ssh-keys.nix; [ heimdall ];
       };
 
       root = {
-        openssh.authorizedKeys.keys = with import ./ssh-keys.nix; [ sean ];
+        openssh.authorizedKeys.keys = with import ./ssh-keys.nix; [ heimdall ];
       };
     };
   };
 
-  system.stateVersion = "18.03";
+  system.stateVersion = "19.09";
 }
